@@ -28,22 +28,20 @@ def main():
     sorted_all_links = []
     for i in all_links:
         if i[:1] == '/':
+            new_link = 'https://casinogoodorbad.com' + i
+            sorted_all_links.append(new_link)
+        if i[:27] == 'https://casinogoodorbad.com':
             sorted_all_links.append(i)
-        if i[:5] == 'https':
-            sorted_all_links.append(i)
-        else:
-            continue
+    for i in sorted_all_links:  # удаляет дубли
+        while sorted_all_links.count(i) > 1:
+            sorted_all_links.remove(i)
+
     for i in sorted_all_links:
-        print(i)
+        answer_url = requests.get(i)  # получает ответ с каждого url в списке
+        print(i, answer_url)
 
 # TODO сохранить список не вошедших данных
-# TODO дополнить адреса
-# TODO пропинговать адреса на ответ
 # TODO сохранить список адресов не casinogoodorbad.com
-# TODO удалить дубли
-
-
-
 
 
 if __name__ == '__main__':

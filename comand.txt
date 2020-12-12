@@ -1,0 +1,45 @@
+systemctl restart nginx
+
+git commit -m ""
+git push -u origin master
+
+sudo systemctl restart gunicorn
+sudo systemctl daemon-reload
+sudo systemctl restart gunicorn.socket gunicorn.service
+
+systemctl status memcached
+systemctl restart memcached
+systemctl enable memcached
+
+pip install -r reqs.txt
+pip freeze > reqs.txt
+
+sudo systemctl enable nginx
+sudo systemctl enable uwsgi
+
+Перевод
+django-admin makemessages -a
+django-admin compilemessages
+
+https://i.ytimg.com/vi/womysg8OAuk/maxresdefault.jpg
+
+<div class="linkblock scale" onclick="location.href='{% url 'article_detail_en' slug=article.slug %}'">
+
+s = ""
+print(s.replace('', ''))
+
+
+Запушить в репозиторий
+git remote add origin https://github.com/vovasinitsa/parser.git
+git branch -M main
+git push -u origin main
+
+
+запуск тестов
+python manage.py test test_main_page --keepdb
+
+
+sudo apt-get install nodejs
+sudo apt-get install npm
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+
