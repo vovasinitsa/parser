@@ -19,11 +19,10 @@ def get_all_links(html):
         a = all_object.get('href')  # строка
         links.append(a)
         links = sorted(links)
-
     return links
 
 
-def main():
+def sorted_list_url():
     all_links = get_all_links(get_html())
     sorted_all_links = []
     for i in all_links:
@@ -35,10 +34,20 @@ def main():
     for i in sorted_all_links:  # удаляет дубли
         while sorted_all_links.count(i) > 1:
             sorted_all_links.remove(i)
+    return sorted_all_links
 
-    for i in sorted_all_links:
-        answer_url = requests.get(i)  # получает ответ с каждого url в списке
-        print(i, answer_url)
+
+def main():
+    sorted_all_links = sorted_list_url()
+    for link in sorted_all_links:
+        answer_url = requests.get(link)  # получает ответ с каждого url в списке
+        print(link, answer_url)
+
+
+
+
+
+
 
 # TODO сохранить список не вошедших данных
 # TODO сохранить список адресов не casinogoodorbad.com
